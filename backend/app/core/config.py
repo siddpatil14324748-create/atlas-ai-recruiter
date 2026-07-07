@@ -10,6 +10,7 @@ class Settings(BaseSettings):
         env_file=".env",
         env_file_encoding="utf-8",
         extra="ignore",
+        case_sensitive=False,
     )
 
     app_name: str = Field(default="atlas-ai-recruiter")
@@ -29,9 +30,6 @@ class Settings(BaseSettings):
 
     database_url: str | None = Field(default=None)
     redis_url: str | None = Field(default=None)
-
-    class Config:
-        case_sensitive = False
 
 
 @lru_cache(maxsize=1)
